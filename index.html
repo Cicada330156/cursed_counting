@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<body>
+        <script>
+                //prints numbers 1 through 10 in the console
+                const randCount = 10000;
+                const randSize = 1000000;
+                function isCoPrime(n1, n2) {
+                        small = Math.min(n1, n2);
+                        for (var i = 2; i < small; i++) {
+                                if (n1 % i === 0 && n2 % i === 0) {
+                                        return false;
+                                }
+                        }
+                        return true;
+                }
+                function magicNumber(r) {
+                        var coPrimes = 0;
+                        for (var i = 0; i < randCount; i++) {
+                                if (isCoPrime(Math.round(Math.random() * randSize), Math.round(Math.random() * randSize))) {
+                                        coPrimes++;
+                                }
+                        }
+                        console.log("coprimes: " + coPrimes);
+                        fairyDust = Math.sqrt(6/(coPrimes/randCount));
+                        return fairyDust * r;
+                }
+                for (var i = 0; i < 10; i++) {
+                        j = i + 1;
+                        var circle = j * magicNumber(j);
+                        var rr = circle / Math.PI;
+                        console.log(Math.round(rr / j));
+                }
+        </script>
+</body>
